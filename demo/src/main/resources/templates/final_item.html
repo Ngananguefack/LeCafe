@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="item">
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Clients</h2>
+            </div>
+            <ul>
+                <li>
+                    <a>
+                        <a th:href="@{list}">
+                            <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Menu</h6>
+                        </a>
+                    </a>
+                </li>
+
+                <li>
+                    <a>
+                        <a th:href="@{Ingredient}">
+                            <h6 className="dmenu"><img src="./image/school.png" alt="">&nbsp;Ingrédients</h6>
+                        </a>
+                    </a>
+                </li>
+
+                <li>
+                    <a>
+                        <a>
+                            <h6 className="dmenu"><img src="./image/settings.png" alt="">&nbsp;Settings</h6>
+                        </a>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Search..">
+                        <button type="submit"><img src="./image/search.png" alt=""></button>
+                    </div>
+                    <div class="user">
+                        <img src="./image/notifications.png" alt="">
+                        <div class="img-case">
+                            <img src="./image/user.png" alt="">
+                        </div>
+                        <div class="img-case">
+                        <a th:href="@{panier}" className="btn btn-primary slider-reveal">
+                            <img src="./image/panier.png" height="60px" width="60px" alt="">
+                        </a>
+                    </div>
+                    </div>
+
+                </div>
+            </div>
+       <div class="item">
+            <div class="titre">
+                <h2 class="titre-texte"><span>Petit-déjeuner</span></h2>
+            </div>
+            <div class="contenu" th:each="item:${itemsMenuss}">
+                <input type ="hidden" class="form-control" name="idItem" th:value="${item.idItem}"/>
+                <div class="box" >
+                    <div class="inbox">
+                        <a className="Petit-déjeuner">
+                        <img src="./image/pbraisé.jpg" width="48%" height="33%" alt="">
+                        <div class="nom">
+                            <h4>Nom: </h4>
+                            <p style="padding-left: 5px;" th:text="${item.Item_name}"></p>
+                        </div>
+                        <div class="nom">
+                            <h4>Ingrédients: </h4>
+                            <p style="padding-left: 5px;" > Lait, Sucre, Café</p>
+                        </div>
+                        <div class="nom">
+                            <h4>Description: </h4>
+                            <p style="padding-left: 5px;" th:text="${item.Description}"> </p>
+                        </div>
+                        <div class="nom">
+                            <h4>Coût: </h4>
+                            <p style="padding-left: 5px;" th:text="${item.Item_cost}"> </p> <span>FCFA</span>
+                        </div>
+                    </a>
+                    <div class="action">
+                        <style>
+                        .action{
+                            margin-top: 50px;
+                            display: flex;
+                            gap: 15px;
+                            flex-direction: row-reverse;
+                        }
+                        </style>
+                        <a class="btn btn-info" th:href="@{comm}">
+                            Commander
+                        </a>
+                        <input type ="hidden" class="form-control" name="idItem" th:value="${item.idItem}"/>
+                        <a class="btn btn-info" th:href="@{ajoutServeur}">
+                            Details
+                        </a>
+
+                    </div>
+        </div>
+       </div>
+
+    </div>
+       </div>
+        </div>
+    </div>
+</body>
+</html>

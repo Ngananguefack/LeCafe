@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Gérant Panel</title>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Gérant</h2>
+            </div>
+            <ul>
+                <li>
+                    <a>
+                        <a href="dashboard.html">
+                            <a>
+                                <h6 className="dmenu"><img src="" alt="">&nbsp;Dashboard</h6>
+                            </a>
+                        </a>
+                    </a>
+                <li>
+                    <a>
+                        <a>
+                            <a th:href="@{menu_ger}">
+                                <h6 className="dmenu"><img src="" alt="">&nbsp;Menu</h6>
+                            </a>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a th:href="@{Item}">
+                            <h6 className="dmenu"><img src="" alt="">&nbsp;Items</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="listeIngredient.html">
+                            <h6 className="dmenu"><img src="" alt="">&nbsp;Ingrédients</h6>
+                        </a> 
+                    </a>  
+                </li>
+                <li>
+                    <a>
+                        <a href="plats.html">
+                            <h6 className="dmenu"><img src="" alt="">&nbsp;Plats servis et plats non servis</h6>
+                        </a> 
+                    </a>   
+                </li>
+                <li>
+                    <a>
+                        <a href="comptabilité.html">
+                            <h6 className="dmenu"><img src="" alt="">&nbsp;Comptabilité</h6>
+                        </a> 
+                    </a>
+                      
+                </li>
+                <li>
+                    <a>
+                        <a href="menu.html">
+                            <h6 className="dmenu"><img src="" alt="">&nbsp;Settings</h6>
+                        </a>
+                    </a>
+                   
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Search..">
+                        <button type="submit"><img src="./image/search.png" alt=""></button>
+                    </div>
+                    <div class="user">
+                        <img src="./image/notifications.png" alt="">
+                        <div class="img-case">
+                            <img src="./image/user.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="cards">
+                    <div class="card">
+                        <div class="box">
+                            <h1>2194</h1>
+                            <h3>Menu</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="students.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>53</h1>
+                            <h3>Items</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="teachers.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>5</h1>
+                            <h3>Ingrédients</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="schools.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <h1>350000</h1>
+                            <h3>Plats servis</h3>
+                        </div>
+                        <div class="icon-case">
+                            <img src="income.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="./css/styles.css">-->
+<!--    <script src="https://code.jquery-3.6.0.min.js"></script>-->
+<!--    <script>-->
+
+
+<!--                 function ajoutlignecommande() {-->
+<!--  var Item_name=document.getElementById("Item_name").textContent;-->
+<!--                  var Item_cost=document.getElementById("Item_cost").textContent-->
+<!--                  var quantite=document.getElementById("quantite").value;-->
+
+
+<!--  fetch('/ligne_commande/add', {-->
+<!--    method: 'POST',-->
+<!--    headers: {-->
+<!--      'Content-Type': 'application/json'-->
+<!--    },-->
+<!--    body: JSON.stringify({-->
+<!--       Item_name:Item_name,-->
+<!--                  Prix_unit:Item_cost,-->
+<!--                  nbreItem:quantite-->
+<!--    })-->
+<!--  })-->
+<!--  .then(response => {-->
+<!--    if (!response.ok) {-->
+<!--      throw new Error('Une erreur s\'est produite lors de l\'ajout de la commande : ' + response.statusText);-->
+<!--    }-->
+<!--    console.log('Commande ajoutée avec succès !');-->
+<!--  })-->
+<!--  .catch(error => {-->
+<!--    console.error(error);-->
+
+<!--                </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="menu">-->
+<!--    <div class="side-menu">-->
+<!--        <div class="brand-name">-->
+<!--            <h2>Informations sur la commande</h2>-->
+<!--        </div>-->
+<!--        <ul>-->
+<!--            <li>-->
+<!--                <a>-->
+<!--                    <a href="dashboard.html">-->
+<!--                        <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Dashboard</h6>-->
+<!--                    </a>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>-->
+<!--                    <a href="menu.html">-->
+<!--                        <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Menu</h6>-->
+<!--                    </a>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>-->
+<!--                    <a href="item.html">-->
+<!--                        <h6 className="dmenu"><img src="./image/teacher2.png" alt="">&nbsp;Items</h6>-->
+<!--                    </a>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a>-->
+<!--                    <a href="listeIngredient.html">-->
+<!--                        <h6 className="dmenu"><img src="./image/school.png" alt="">&nbsp;Ingrédients</h6>-->
+<!--                    </a>-->
+<!--                </a>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--                <a>-->
+<!--                    <a href="menu.html">-->
+<!--                        <h6 className="dmenu"><img src="./image/settings.png" alt="">&nbsp;Settings</h6>-->
+<!--                    </a>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <div class="container">-->
+<!--        <div class="header">-->
+<!--            <div class="nav">-->
+<!--                <div class="search">-->
+<!--                    <input type="text" placeholder="Search...">-->
+<!--                    <button type="submit"><img src="./image/search.png" alt=""></button>-->
+<!--                </div>-->
+<!--                <div class="user">-->
+
+<!--                    <img src="./image/notifications.png" alt="">-->
+<!--                    <div class="img-case">-->
+<!--                        <img src="./image/user.png" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="content">-->
+
+<!--            <div class="content-2">-->
+<!--                <div class="recent-payments">-->
+<!--                    <div class="title">-->
+<!--                        <h2>Liste des Items</h2>-->
+<!--                    </div>-->
+<!--                    <form th:object="${ligne_commande}" method="POST" enctype="multipart/form-data" th:action="@{/ligne_commande}" th:each="item:${itemsMenus}">-->
+<!--                        &lt;!&ndash;          <input type="hidden" th:field="*{itemId}" th:value="${item.idItem}"/>&ndash;&gt;-->
+<!--                        <p>Nom:<span th:text="${item.Item_name}"></span></p>-->
+<!--                        <p>Prix:<span th:text="${item.Item_cost}"></span></p>-->
+<!--                        <label >Quantité:</label>-->
+<!--                        <input type ="number" class="form-control" th:field="*{nbreItem}"/>-->
+<!--                        <button  type ="submit" class="btn btn-primary">Ajouter</button>-->
+<!--                    </form>-->
+
+
+
+
+
+
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                    </table>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Optional JavaScript &ndash;&gt;-->
+<!--&lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash;<form th:object="${ligne_command}" method="POST" enctype="multipart/form-data" th:action="@{ligne_command}" th:each="item:${itemsMenus}">&ndash;&gt;-->
+<!--&lt;!&ndash;    &lt;!&ndash;          <input type="hidden" th:field="*{itemId}" th:value="${item.idItem}"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Nom:<span th:text="${item.Item_name}"></span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Prix:<span th:text="${item.Item_cost}"></span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <label for="quantite" >Quantité:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="number" id="quantite" name="quantite"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <button  type ="submit" class="btn btn-primary">Ajouter</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->

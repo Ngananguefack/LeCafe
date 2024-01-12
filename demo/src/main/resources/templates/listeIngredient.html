@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Gérant Panel</title>
+</head>
+
+<body>
+    <div class="listeIngredient">
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Gérant</h2>
+            </div>
+            <ul>
+                <li>
+                    <a>
+                        <a href="dashboard.html">
+                            <h6 className="dmenu"><img src="./image/dashboard (2).png" alt="">&nbsp;Dashboard</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="menu.html">
+                            <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Menu</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="item.html">
+                            <h6 className="dmenu"><img src="./image/teacher2.png" alt="">&nbsp;Items</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="listeIngredient.html">
+                            <h6 className="dmenu"><img src="./image/school.png" alt="">&nbsp;Ingrédients</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="plats.html">
+                            <h6 className="dmenu"><img src="./payment.png" alt="">&nbsp;Plats servis et plats non servis</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="comptabilité.html">
+                            <h6 className="dmenu"><img src="./image/help-web-button.png" alt="">&nbsp;Comptabilité</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="menu.html">
+                            <h6 className="dmenu"><img src="./image/settings.png" alt="">&nbsp;Settings</h6>
+                        </a>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Search..">
+                        <button type="submit"><img src="./image/search.png" alt=""></button>
+                    </div>
+                    <div class="user">
+                        <img src="./image/notifications.png" alt="">
+                        <div class="img-case">
+                            <img src="./image/user.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+
+                <div class="content-2">
+                    <div class="recent-payments">
+                        <div class="title">
+                            <h2>Liste des Ingrédients</h2>
+
+
+
+                            <a th:href="@{ajoutServeur}" class="btn btn-info">Ajouter Ingrédient</a>
+                        </div>
+                        <table class="table mt-2">
+                            <thead>
+                            <tr>
+                                <th>Identifiant</th>
+                                <th>Description</th>
+                                <th>Prix unitaire</th>
+                                <th>Option</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="p:${ingredientsMenus}">
+                                <td th:text="${p.id}"></td>
+                                <td th:text="${p.name}"></td>
+                                <td th:text="${p.Description}"></td>
+                                <td th:text="${p.Cost}" ></td>
+                                <td>
+                                    <a onclick= "return confirm('Voulez-vous vraiment supprimer cet élément?')" class="btn btn-danger" th:href="@{delet(id=${p.id})}">
+                                        Delete
+                                    </a>
+                                <td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

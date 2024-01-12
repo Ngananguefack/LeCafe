@@ -1,0 +1,461 @@
+<!doctype html >
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TP genie logiciel</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body{background-color: white;}
+        header{background-color: rebeccapurple; border-radius: 10px;}
+        fieldset{background-color: whitesmoke; width: 25%; margin-top: 5%; box-shadow: 5px 5px 20px 1px 10px rgb(85, 85, 85); padding-left: 10px; border-radius: 10px 10px 10px 10px;}
+        td{letter-spacing: 1px;}
+        h1{letter-spacing: 3px; text-align: center;}
+        hr{border: 5px solid white; border-radius: 10px; width: 40%;}
+        p{color: cadetblue;}
+        ul li{margin-left: 20px;}
+        #submit{margin: 20px 35px; background-color: white; width: 80%; font-size: 17px; border-radius: 20px; border: 1px solid rebeccapurple;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="panne.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <h1 align="center"><font color="whitesmoke" size="20">LISTES DES MENUS</font></h1>
+</header>
+<div>
+    <div class="div1" mt-2>
+        <form method=" get" th:action="@{index}">
+            <input type="text" name=" keyword" th:value="${keyword}">
+            <button type="submit" class="btn btn-primary"> Chercher</button>
+        </form>
+
+        <center>
+            <div class="card-body"><table class="table mt-2">
+                <thead>
+                <tr>
+                    <th>Identifiant Menu</th><th>Nom</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${listMenus}">
+                    <td th:text="${p.idMenu}"></td>
+                    <td th:text="${p.nameMenu}"></td>
+                    <td>
+                        <a class="btn btn-info" th:href="@{ajoutmenu}"> Ajouter </a>
+                    <td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </center>
+
+
+        <div> <button type="button" class="add"> Ajouter</button> </div>
+    </div>
+
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* h1,
+h2 {
+    color: #444;
+}
+
+h3 {
+    color: #999;
+} */
+
+.btn {
+    background: hsl(38, 61%, 73%);
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.btn:hover {
+    color: black;
+    background: hsl(38, 61%, 73%);
+    padding: 3px 8px;
+    border: 2px solid hsl(38, 61%, 73%);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+    margin-top: 50px;
+}
+
+table {
+    padding: 10px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+.side-menu {
+    position: fixed;
+    background: hsl(38, 61%, 73%);
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu li {
+    font-size: 24px;
+    padding: 10px 40px;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.side-menu li:hover {
+    background: white;
+    color: hsl(38, 61%, 73%);
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: #f1f1f1;
+}
+
+.container .header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 10vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.container .header .nav {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.container .header .nav .search {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.container .header .nav .search input[type=text] {
+    border: none;
+    background: #f1f1f1;
+    padding: 10px;
+    width: 50%;
+}
+
+.container .header .nav .search button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .header .nav .search button img {
+    width: 30px;
+    height: 30px;
+}
+
+.container .header .nav .user {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .header .nav .user img {
+    width: 40px;
+    height: 40px;
+}
+
+.container .header .nav .user .img-case {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.container .header .nav .user .img-case img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background: #f1f1f1;
+}
+
+.container .content .cards {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container .content .cards .card {
+    width: 250px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container .content .content-2 {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.container .content .content-2 .recent-payments {
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.container .content .content-2 .new-students {
+    flex: 2;
+    background: white;
+    min-height: 50vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content .content-2 .new-students table td:nth-child(1) img {
+    height: 40px;
+    width: 40px;
+}
+
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 40px;
+        height: 40px;
+    }
+    .side-menu li:hover {
+        background: hsl(38, 61%, 73%);
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+}
+
+@media screen and (max-width:536px) {
+    .brand-name h1 {
+        font-size: 16px;
+    }
+    .container .content .cards {
+        justify-content: center;
+    }
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+    .container .content .content-2 .recent-payments table th:nth-child(2),
+    .container .content .content-2 .recent-payments table td:nth-child(2) {
+        display: none;
+    }
+}
+
+.titre{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+  }
+
+  .menu{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /* color:var(--white);
+    font-family:var(--fontFamily-dm_sans);
+    font-size: var(--fontSize-body-4);
+    font-weight: var(--weight-regular);
+    line-height:var(--lineHeight-5);
+    height:300vh; */
+
+  }
+
+  .menu .contenu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+  }
+
+  .menu .contenu .box{
+    width: 350px;
+    margin: 15px;
+    border: 20px solid white;
+    box-shadow: 20px 15px 35px rgba(0,0,0 , 0.8);
+  }
+
+
+  .menu .contenu .box .inbox{
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+
+  .textbox{
+    color: black;;
+  }
+
+  .menu .contenu .box .inbox img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 295px;
+    object-fit: cover;
+  }
+
+  .menu .contenu .box .textbox{
+    text-align: center;
+    font-weight: 290px;
+    color: #111;
+  }
+
+  .menu .contenu .box .textbox h4{
+      font-weight: 300;
+
+  }
+
+
+  .item{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+
+  }
+
+  .item .contenu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    color: black;
+  }
+
+  .item .contenu .box{
+    width: 350px;
+    margin: 15px;
+    border: 20px solid white;
+    box-shadow: 20px 15px 35px rgba(0,0,0 , 0.8);
+  }
+
+
+  .item .contenu .box .inbox{
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+
+  .item .contenu .box .inbox img{
+    position: relative;
+    top: 0;
+    left: 0;
+    /* width: 40%;
+    height: 80px; */
+
+  }
+
+  .nom{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+  }
+
+.dmenu{
+    color: #111;
+}
+
+</style>
+</body>
+</html>

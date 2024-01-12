@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Menu</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Gérant</h2>
+            </div>
+            <ul>
+                <li>
+                    <a>
+                        <a th:href="@{accueil}">
+                                <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Dashboard</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a th:href="@{menu_ger}">
+                            <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Menu</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a th:href="@{item_ger}">
+                            <h6 className="dmenu"><img src="./image/teacher2.png" alt="">&nbsp;Items</h6>
+                        </a>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a th:href="@{Ingredient}">
+                            <h6 className="dmenu"><img src="./image/school.png" alt="">&nbsp;Ingrédients</h6>
+                        </a> 
+                    </a>  
+                </li>
+                <li>
+                    <a>
+                        <a href="comptabilité.html">
+                            <h6 className="dmenu"><img src="./image/help-web-button.png" alt="">&nbsp;Comptabilité</h6>
+                        </a> 
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <a href="menu.html">
+                            <h6 className="dmenu"><img src="./image/settings.png" alt="">&nbsp;Settings</h6>
+                        </a>
+                    </a>  
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Search..">
+                        <button type="submit"><img src="./image/search.png" alt=""></button>
+                    </div>
+                    <div class="user">
+                        <a th:href="@{ajoutServeur}" class="btn">Ajouter menu</a>
+
+                        <img src="./image/notifications.png" alt="">
+                        <div class="img-case">
+                            <img src="./image/user.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="menu">
+            <div class="titre">
+                <h2>Menu</h2>
+                <p>Voci les différents menus que nous vous proposons</p>
+            </div>
+            <div class="contenu">
+                <table class="table mt-2">
+                    <thead>
+                    <tr>
+                        <th>Identifiant Menu</th><th>Nom</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p:${menus}">
+                        <td th:text="${p.idMenu}"></td>
+                        <td th:text="${p.nameMenu}"></td>
+                        <td>
+                            <a onclick= "return confirm('Voulez-vous vraiment supprimer cet élément?')" class="btn btn-danger" th:href="@{deleteMenu(id=${p.idMenu})}">
+                                Delete
+                            </a>
+                        <td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html >
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TP genie logiciel</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body{background-color: white;}
+        header{background-color: rebeccapurple; border-radius: 10px;}
+        fieldset{background-color: whitesmoke; width: 25%; margin-top: 5%; box-shadow: 5px 5px 20px 1px 10px rgb(85, 85, 85); padding-left: 10px; border-radius: 10px 10px 10px 10px;}
+        td{letter-spacing: 1px;}
+        h1{letter-spacing: 3px; text-align: center;}
+        hr{border: 5px solid white; border-radius: 10px; width: 40%;}
+        p{color: cadetblue;}
+        ul li{margin-left: 20px;}
+        #submit{margin: 20px 35px; background-color: white; width: 80%; font-size: 17px; border-radius: 20px; border: 1px solid rebeccapurple;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="panne.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <h1 align="center"><font color="whitesmoke" size="20">LISTES DES SERVEURS</font></h1>
+</header>
+<div>
+    <div class="div1" mt-2>
+        <form method=" get" th:action="@{index}">
+            <input type="text" name=" keyword" th:value="${keyword}">
+            <button type="submit" class="btn btn-primary"> Chercher</button>
+        </form>
+
+        <center>
+            <div class="card-body"><table class="table mt-2">
+                <thead>
+                <tr>
+                    <th>Identifiant serveurs</th><th>Nom</th> <th> Email </th><th>Adresse </th> <th>Contact </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${listServeur}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.serveur_name}"></td>
+                    <td th:text="${p.Email}" ></td>
+                    <td th:text="${p.Adress}" ></td>
+                    <td th:text="${p.Tel}" ></td>
+                    <td>
+                        <a onclick= "return confirm('Voulez-vous vraiment supprimer cet élément?')" class="btn btn-danger" th:href="@{delet(id=${p.id})}">
+                            Delete
+                        </a>
+                    <td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </center>
+
+        <a class="btn btn-info" th:href="@{ajoutServeur}">
+            Ajouter
+        </a>
+    </div>
+    <a th:href="@{ajoutServeur}">
+    <img src="breakfast.jpg">
+    </a>
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

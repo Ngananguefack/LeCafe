@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8" name="viewport" content="with=device-width, initial-scale=1.0" />
+    	<title>TP GL</title>
+        <link rel="stylesheet" type="text/css" href="scss1/style.css">
+    </head>
+    <body>
+        <main>
+            <h1>Choisir le mode de paiement</h1>
+            <section>
+                <p class="input">
+                    <input type="radio" name="paiement" id=" MTN MOMO" value="MTN MOMO">
+                    <label for="MTN MOMO"> MTN Mobile Money</label>
+                </p>
+                <p class="input">
+                    <input type="radio" name="paiement" id="OM" value="OM">
+                    <label for="OM">Orange Money</label>
+                </p>
+                <p class="input">
+                    <input type="radio" name="paiement" id="VB" value="VB">
+                    <label for="VB">Virement bancaire</label>
+                </p>
+                <p class="input">
+                    <input type="radio" name="paiement" id="VB" value="VB">
+                    <label for="VB">Paypal</label>
+                </p>
+                <button class="btn btn-info"> Valider</button>
+            </section>
+            <style>
+                * {
+  margin: 0;
+  padding: 0;
+  font-family: poppins, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #646464;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+header {
+  background: -webkit-gradient(linear, left bottom, right top, from(#669933), to(#8cd346));
+  background: linear-gradient(to top right, #669933, #8cd346);
+  text-align: center;
+  width: 100%;
+  padding: 1em;
+  color: white;
+}
+
+header h1 {
+  color: white;
+  font-size: 2.5em;
+}
+
+main {
+  width: 100%;
+  padding: 0 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section {
+  width: 100%;
+}
+
+main section input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1em;
+}
+
+main section p.input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form {
+  width: 100%;
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding-top: 2em;
+}
+
+main input, main textarea {
+  width: 100%;
+  margin-bottom: 2em;
+  resize: none;
+  padding: 1em;
+  border-radius: .5em;
+  border: solid 1px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+main textarea {
+  height: 6em;
+}
+
+main .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .submit input {
+  padding: 1em;
+}
+
+main .submit input:first-child {
+  margin-right: .5em;
+  font-weight: bolder;
+}
+
+main .submit input:first-child:hover {
+  background: #646464;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 0 3px 7px rgba(100, 100, 100, 0.5);
+          box-shadow: 0 3px 7px rgba(100, 100, 100, 0.5);
+}
+
+main .submit input:last-child {
+  margin-left: .5em;
+  background: -webkit-gradient(linear, left bottom, right top, from(#669933), to(#8cd346));
+  background: linear-gradient(to top right, #669933, #8cd346);
+  color: white;
+  font-weight: bolder;
+}
+
+main .submit input:last-child:hover {
+  background: -webkit-gradient(linear, left bottom, right top, from(#8cd346), to(#669933));
+  background: linear-gradient(to top right, #8cd346, #669933);
+  border: none;
+  font-weight: bolder;
+  -webkit-box-shadow: 0 3px 7px #669933;
+          box-shadow: 0 3px 7px #669933;
+}
+/*# sourceMappingURL=style.css.map */
+            </style>
+        </main>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+ </html>

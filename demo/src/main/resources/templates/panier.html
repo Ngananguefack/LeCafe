@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://code.jquery-3.6.0.min.js"></script>
+    <script>
+
+
+                 function ajoutlignecommande() {
+  var Item_name=document.getElementById("Item_name").textContent;
+                  var Item_cost=document.getElementById("Item_cost").textContent
+                  var quantite=document.getElementById("quantite").value;
+
+
+  fetch('/ligne_commande/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+       Item_name:Item_name,
+                  Prix_unit:Item_cost,
+                  nbreItem:quantite
+    })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Une erreur s\'est produite lors de l\'ajout de la commande : ' + response.statusText);
+    }
+    console.log('Commande ajoutée avec succès !');
+  })
+  .catch(error => {
+    console.error(error);
+
+                </script>
+</head>
+<body>
+<div class="menu">
+    <div class="side-menu">
+        <div class="brand-name">
+            <h2>Liste de votre commande</h2>
+        </div>
+        <ul>
+            <li>
+                <a>
+                    <a href="dashboard.html">
+                        <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Dashboard</h6>
+                    </a>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <a href="menu.html">
+                        <h6 className="dmenu"><img src="./image/reading-book (1).png" alt="">&nbsp;Menu</h6>
+                    </a>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <a href="item.html">
+                        <h6 className="dmenu"><img src="./image/teacher2.png" alt="">&nbsp;Items</h6>
+                    </a>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <a href="listeIngredient.html">
+                        <h6 className="dmenu"><img src="./image/school.png" alt="">&nbsp;Ingrédients</h6>
+                    </a>
+                </a>
+            </li>
+
+            <li>
+                <a>
+                    <a href="menu.html">
+                        <h6 className="dmenu"><img src="./image/settings.png" alt="">&nbsp;Settings</h6>
+                    </a>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><img src="./image/search.png" alt=""></button>
+                </div>
+                <div class="user">
+
+                    <img src="./image/notifications.png" alt="">
+                    <div class="img-case">
+                        <img src="./image/user.png" alt="">
+                    </div>
+                    <div class="img-case">
+                        <a th:href="@{panier}" className="btn btn-primary slider-reveal">
+                            <img src="./image/panier.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Liste de votre commande</h2>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data" th:action="@{/panier}" >
+
+                        <table class="table mt-2">
+                            <thead>
+                            <tr>
+                                <th>Nom</th><th>Prix unitaire</th> <th> Quantité </th><th> Prix Total </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="p:${ligne_commande}">
+                                <td th:text="${p.nameItem}" th:field="*{nom_item}" th:value="${p.nameItem}"> </td>
+                                <td th:text="${p.Prix_unit}" name="prix" > </td>
+                                <td th:text="${p.nbreItem}" name="quantite"> </td>
+                                <td th:text="${p.nbreItem * p.Prix_unit}"> </td>
+                                <input type ="hidden" class="form-control" name="idLigne_Commande" th:value="${p.idLigne_Commande}"/>
+                                <!--<button  type ="submit" class="btn btn-primary">Ajouter</button>-->
+                            </tr>
+                            <td><h2> Total</h2></td>
+                            <td th:text="${total}"></td>
+
+                            </tbody>
+
+                        </table>
+                        <button  th:href="@{Achat}" class="btn btn-primary">Ajouter</button>
+                    </form>
+
+                    </tr>
+                    </tbody>
+                    </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+

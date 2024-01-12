@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parc informatique</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+          body{background-image: url("p1.jpg");
+      background-repeat: no-repeat;
+  background-position: center;
+background-attachment: fixed;
+background-size: cover;}
+        header{background-color: rebeccapurple; border-radius: 10px;}
+        fieldset{background-color: whitesmoke; width: 25%; margin-top: 5%; box-shadow: 5px 5px 20px 1px 10px rgb(85, 85, 85); padding-left: 10px; border-radius: 10px 10px 10px 10px;}
+        td{letter-spacing: 1px;}
+        h1{letter-spacing: 3px; text-align: center;}
+        hr{border: 5px solid white; border-radius: 10px; width: 40%;}
+        p{color: cadetblue;}
+        ul li{margin-left: 20px;}
+        #submit{margin: 20px 35px; background-color: white; width: 80%; font-size: 17px; border-radius: 20px; border: 1px solid rebeccapurple;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="ajouter equipement.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <h1 align="center"><font color="whitesmoke" size="20">Enregistrer un nouvel item</font></h1>
+</header>
+<form th:object="${item}" method="POST" enctype="multipart/form-data" action="items"
+      style ="max-width:600px; margin:0 auto">
+    <div class ="m-3">
+        <div class="form_group row">
+            <label class="col-form-label col-4">Nom</label>
+            <div class ="col-8">
+                <input type ="text" class="form-control" th:field="*{Item_name}" required/>
+            </div>
+        </div>
+
+        <div class="form_group row">
+            <label class="col-form-label col-4">Description</label>
+            <div class ="col-8">
+                <input type ="text" class="form-control" th:field="*{Description}" required/>
+            </div>
+
+        </div>
+
+        <div class="form_group row">
+            <label class="col-form-label col-4">Prix unitaire</label>
+            <div class ="col-8">
+                <input type ="text" class="form-control" th:field="*{Item_cost}" required/>
+            </div>
+
+        </div>
+
+        <div>
+            <button type ="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+    </div>
+</form>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Parc informatique</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    
+    <style>
+          body{background-image: url("nat.jpg");
+      background-repeat: no-repeat;
+  background-position: center;
+background-attachment: fixed;
+background-size: cover;}
+        header{background-color: rebeccapurple; border-radius: 10px;}
+        fieldset{background-color: whitesmoke; width: 25%; margin-top: 5%; box-shadow: 5px 5px 20px 1px 10px rgb(85, 85, 85); padding-left: 10px; border-radius: 10px 10px 10px 10px;}
+        td{letter-spacing: 1px;}
+        h1{letter-spacing: 3px; text-align: center;}
+        hr{border: 5px solid white; border-radius: 10px; width: 40%;}
+        p{color: cadetblue;}
+        ul li{margin-left: 20px;}
+        #submit{margin: 20px 35px; background-color: white; width: 80%; font-size: 17px; border-radius: 20px; border: 1px solid rebeccapurple;}
+    </style>
+  <link rel="stylesheet" type="text/css" href="equipement.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" >
+  </head>
+  <body>
+      
+    <header>
+        <h1 align="center"><font color="whitesmoke" size="20">Equipements</font></h1>
+    </header>   
+<div>
+        
+            <div class="div0"><button class=" ajouter"> Nouveau</button>   <button class=" ajouter" type= button> Modifier </button>
+              
+                    
+                <select name="Inventaire" class="ajouter">
+                    <option value="A">Inventaire general</option>
+                    <option value="B">Inventaire par site</option>
+                    <option value="C">Utilisateur</option>
+                    <option value="D">Inventaire bureau</option>
+                  </select>
+            </div> 
+            <div class="div1" mt-2>    
+        <form method="get" th:action="@{equiplist}" >
+        	<label>>Mot cle</label>
+            <input type="text" name=" keyword" th:value="${keyword}">
+            <button type="submit" class="btn btn-primary" > Chercher</button>
+            </form>
+            <center> <div class="div3"> Liste des equipements</div></center>
+            <center>
+            <div class="div4"><table class="table mt-2">
+            <thead>
+            <tr>
+            <td>Numéro de série </td> <td> Nom </td><td>Type </td> <td>Marque </td> <td> Date acquisition</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each ="e:${listEquipement}">
+                                <td th:text="${e.numSerie}"></td>
+                                <td th:text="${e.nomEquipement}"></td>
+                                <td th:text="${e.type}" ></td>
+                                <td th:text="${e.marqueEquipement}" ></td>
+                                <td th:text="${e.dateAcquisition}" ></td>
+                                <td><a class="btn btn-danger" th:href="@{delete(numSerie=${e.numSerie})}">Supprimer</a>
+                                </td>
+                                <td>
+                                    </td>
+            </tr>
+             </tbody>
+            </table></div>
+        </center> 
+        
+    </div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
